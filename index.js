@@ -15,8 +15,12 @@ const displayWorkoutRoutine = () => {
 document.querySelector('#submitWorkout').addEventListener('click', displayWorkoutRoutine);
 
 const addNewGoal = () => {
-    const goalInput = document.querySelector('#goalInput').value;
+    const goalInput = document.querySelector('#goalInput').value.trim(); //trim the input
     const goalList = document.querySelector('#goalList');
+
+    //check for duplicate
+    cons existingGoals = goalList.querySelectorAll('li');
+    const isDuplicate = Array.from(existingGoal).some((goal)) => goal.textContent.trim().toLowerCase() === goalInput.toLowerCase());
 
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
