@@ -20,14 +20,15 @@ const addNewGoal = () => {
 
     //check for duplicate
     const existingGoals = goalList.querySelectorAll('li');
-    const isDuplicate = Array.from(existingGoals).some((goal)) => goal.textContent.trim().toLowerCase() === goalInput.toLowerCase();
+    const isDuplicate = Array.from(existingGoals).some((goal) => goal.textContent.trim().toLowerCase() === goalInput.toLowerCase());
 
     //prevent duplicate
     if (isDuplicate){
         alert('This goal exists. Enter a new goal.');
         return;
     }
-    
+
+    //add the goal to the list
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
     goalList.appendChild(newGoal);
